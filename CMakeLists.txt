@@ -30,6 +30,7 @@ target_link_libraries(${EXECUTABLE_NAME} gmock_main gtest gtest pthread)
 
 # Include root directory
 include_directories(BEFORE ".")
+include_directories(BEFORE "src/")
 
 # Activate C++0x support
 # set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++0x")
