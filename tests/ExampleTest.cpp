@@ -1,10 +1,9 @@
 #include "gmock/gmock.h"
 
-class TestCaseFixture : testing::Test {
+class TestCaseFixture : public testing::Test {
 public:
 
-
-}
+};
 
 TEST_F(TestCaseFixture, TestDescription) {
 

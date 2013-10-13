@@ -16,6 +16,8 @@ set(GMOCK_HOME "$ENV{GMOCK_HOME}")
 
 include_directories("${GMOCK_HOME}/include")
 include_directories("${GMOCK_HOME}/gtest/include")
+link_directories("${GMOCK_HOME}/lib/.libs")
+link_directories("${GMOCK_HOME}/gtest/lib/.libs")
 
 # Main program executable
 ###############################################################################
