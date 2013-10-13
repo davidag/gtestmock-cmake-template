@@ -14,8 +14,6 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wextra")
 ###############################################################################
 set(GMOCK_HOME "$ENV{GMOCK_HOME}") 
 
-add_subdirectory("${GMOCK_HOME}")
-
 include_directories("${GMOCK_HOME}/include")
 include_directories("${GMOCK_HOME}/gtest/include")
 
@@ -27,7 +25,11 @@ set(EXECUTABLE_NAME "TODO_change_this")
 file(GLOB SRC_FILES "src/*.cpp")
 
 # Executable dependencies
-add_executable(${EXECUTABLE_NAME} ${SRC_FILES}) 
+if(SRC_FILES)
+
+    add_executable("${EXECUTABLE_NAME}" ${SRC_FILES}) 
+
+endif(SRC_FILES)
 
 # Set link libraries
 # target_link_libraries($EXECUTABLE_NAME ...)
@@ -39,10 +41,10 @@ set(UT_EXECUTABLE_NAME "unittests")
 # Test files
 file(GLOB TEST_FILES "tests/*.cpp")
 
-add_executable(${UT_EXECUTABLE_NAME} $TEST_FILES $SRC_FILES)
+add_executable("${UT_EXECUTABLE_NAME}" ${TEST_FILES} ${SRC_FILES})
 
 # Set link libraries (order matters)
-target_link_libraries(${UT_EXECUTABLE_NAME} gmock gtest pthread)
+target_link_libraries("${UT_EXECUTABLE_NAME}" gmock gtest pthread)
 
 # Include root directory
 include_directories(BEFORE ".")
