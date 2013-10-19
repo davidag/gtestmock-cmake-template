@@ -5,10 +5,10 @@ project(TODO_set_project_name)
 # General
 ###############################################################################
 # Activate C++0x support
-# set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++0x")
+add_definitions(-std=c++0x)
 
 # Extra warnings
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wextra")
+add_definitions(-Wextra)
 
 # Google Mock & Test
 ###############################################################################
