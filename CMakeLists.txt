@@ -4,7 +4,7 @@ project(TODO_set_project_name)
 
 # General
 ###############################################################################
-# Activate C++0x support
+# Activate C++0x support (if you encounter gmock errors, use 1.6.0 version)
 add_definitions(-std=c++0x)
 
 # Extra warnings
@@ -41,7 +41,7 @@ endif(SRC_FILES)
 set(UT_EXECUTABLE_NAME "unittests")
 
 # Test files
-file(GLOB TEST_FILES "tests/*.cpp")
+file(GLOB TEST_FILES "unittests/*.cpp")
 
 add_executable("${UT_EXECUTABLE_NAME}" ${TEST_FILES} ${SRC_FILES})
 
