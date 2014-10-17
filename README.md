@@ -1,6 +1,6 @@
 # Google Test/Mock CMake template
 
-Basic template for C++ development using Google [Test](http://code.google.com/p/googletest/)/[Mock](http://code.google.com/p/googlemock/) and [CMake](http://www.cmake.org/). It was initially created for a [C++ Testing Hacklab](http://www.davidalfonso.es/testing-lab-con-agile-aragon/) _(in Spanish)_ on March 2013.
+Basic template for C++ development using Google [Test](http://code.google.com/p/googletest/)/[Mock](http://code.google.com/p/googlemock/) and [CMake](http://www.cmake.org/). It was initially created for a [C++ Testing Hacklab](https://speakerdeck.com/davidag/how-i-do-c-plus-plus-testing) on March 2013.
 
 ## Usage
 
