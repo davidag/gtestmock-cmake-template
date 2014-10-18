@@ -18,7 +18,7 @@ include_directories(${GMOCK_ROOT}/gtest/include)
 
 # Main program executable
 ###############################################################################
-set(EXECUTABLE_NAME "main_program")
+set(EXECUTABLE_NAME "program")
 
 # Source files
 file(GLOB SRC_FILES "src/*.cpp")
@@ -31,9 +31,9 @@ endif(SRC_FILES)
 # Set link libraries
 # target_link_libraries($EXECUTABLE_NAME ...)
 
-# Unit Tests executable
+# Tests executable
 ###############################################################################
-set(UT_EXECUTABLE_NAME "test")
+set(TEST_EXECUTABLE_NAME "tests")
 
 # Test files
 file(GLOB TEST_FILES "test/*.cpp")
@@ -42,10 +42,10 @@ file(GLOB TEST_FILES "test/*.cpp")
 file(GLOB MAIN_SRC "src/Main.cpp")
 list(REMOVE_ITEM SRC_FILES ${MAIN_SRC})
 
-add_executable("${UT_EXECUTABLE_NAME}" ${TEST_FILES} ${SRC_FILES})
+add_executable("${TEST_EXECUTABLE_NAME}" ${TEST_FILES} ${SRC_FILES})
 
 # Set link libraries (order matters)
-target_link_libraries("${UT_EXECUTABLE_NAME}" gmock gtest pthread)
+target_link_libraries("${TEST_EXECUTABLE_NAME}" gmock gtest pthread)
 
 # Include root directory
 include_directories(BEFORE ".")
