@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 2.8)
 
-project(TODO_set_project_name)
+project(my_project)
 
 # General
 ###############################################################################
@@ -12,25 +12,20 @@ add_definitions(-Wextra)
 
 # Google Mock & Test
 ###############################################################################
-set(GMOCK_HOME "$ENV{GMOCK_HOME}") 
-
-include_directories("${GMOCK_HOME}/include")
-include_directories("${GMOCK_HOME}/gtest/include")
-link_directories("${GMOCK_HOME}/lib/.libs")
-link_directories("${GMOCK_HOME}/gtest/lib/.libs")
+add_subdirectory(${GMOCK_ROOT})
+include_directories(${GMOCK_ROOT}/include)
+include_directories(${GMOCK_ROOT}/gtest/include)
 
 # Main program executable
 ###############################################################################
-set(EXECUTABLE_NAME "TODO_change_this")
+set(EXECUTABLE_NAME "main_program")
 
 # Source files
 file(GLOB SRC_FILES "src/*.cpp")
 
 # Executable dependencies
 if(SRC_FILES)
-
     add_executable("${EXECUTABLE_NAME}" ${SRC_FILES}) 
-
 endif(SRC_FILES)
 
 # Set link libraries
@@ -38,10 +33,14 @@ endif(SRC_FILES)
 
 # Unit Tests executable
 ###############################################################################
-set(UT_EXECUTABLE_NAME "unittests")
+set(UT_EXECUTABLE_NAME "test")
 
 # Test files
-file(GLOB TEST_FILES "unittests/*.cpp")
+file(GLOB TEST_FILES "test/*.cpp")
+
+# Don't include Main.cpp from src
+file(GLOB MAIN_SRC "src/Main.cpp")
+list(REMOVE_ITEM SRC_FILES ${MAIN_SRC})
 
 add_executable("${UT_EXECUTABLE_NAME}" ${TEST_FILES} ${SRC_FILES})
 
